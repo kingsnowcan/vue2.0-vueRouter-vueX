@@ -81,9 +81,11 @@ export default {
       if(this.passwordErrors.status&&this.userErrors.status){
         this.errorText = ''
          console.log(this.usernameModel,this.passwordModel) 
-         this.$http.get('api/login')  
-         .then((data)=>{
-            this.$emit('has-log',data)
+         this.$http.ge
+
+         t('api/login')  
+         .then((res)=>{
+            this.$emit('has-log',res.data)
          },(error)=>{
           console.log('错误的回调')
          })      
