@@ -1,15 +1,13 @@
 <template>
-    <div class="chooser-component"  >
-      
+    <div class="chooser-component">
         <ul class="chooser-list">
-        	<li
+          <li
           v-for="(item, index) in selections"
           @click="chosenSelection(index)"
           :title="item.label"
-          :class="{active:index === nowIndex}"
-          >{{ item.label }}</li>
+          :class="{active:index === nowIndex}">{{ item.label }}</li>
         </ul>
-     
+      </div>
     </div>
 </template>
 
@@ -19,7 +17,7 @@ export default {
     selections: {
       type: Array,
       default: [{
-        label: '半年',
+        label: 'test',
         value: 0
       }]
     }
@@ -32,8 +30,8 @@ export default {
   methods: {
     chosenSelection (index) {
       this.nowIndex = index
-      //this.$emit('on-change', this.nowIndex)
-    },
+      this.$emit('on-change', this.selections[index])
+    }
   }
 }
 </script>

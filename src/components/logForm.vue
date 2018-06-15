@@ -81,9 +81,7 @@ export default {
       if(this.passwordErrors.status&&this.userErrors.status){
         this.errorText = ''
          console.log(this.usernameModel,this.passwordModel) 
-         this.$http.ge
-
-         t('api/login')  
+         this.$http.get('api/login')  
          .then((res)=>{
             this.$emit('has-log',res.data)
          },(error)=>{
