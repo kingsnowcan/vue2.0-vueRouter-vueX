@@ -208,7 +208,7 @@ components:{
         version:buyVersionsArr.join(',')
       }
       console.log('55',reqParams)
-      this.$http.get('/api/getPrice')
+      this.$http.get('/api/getPrice',{reqParams:reqParams})
       .then((res)=>{
         /*let data = JSON.parse(res.data)*/
         this.price = res.data.amount
@@ -246,7 +246,7 @@ components:{
         bankId: this.bankId
       }
        console.log('123',reqParams)
-      this.$http.get('/api/createOrder')
+      this.$http.get('/api/createOrder',{reqParams:reqParams})
       .then((res)=>{
         /*let data = JSON.parse(res.data)*/
         this.orderId = res.data.orderId

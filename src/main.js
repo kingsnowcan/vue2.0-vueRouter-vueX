@@ -51,11 +51,13 @@ import Layout from './components/layout'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import IndexPage from './pages/index'
+import OrderList from './pages/orderList'
 import DetailPage from './pages/detail'
 import DetailForPage from './pages/detail/forecast'
 import DetailAnaPage from './pages/detail/analysis'
 import DetailCouPage from './pages/detail/count'
 import DetailPubPage from './pages/detail/publish'
+
 Vue.use(VueRouter)//使用路由
 Vue.use(VueResource)//使用ajax调用后台数据
 let router = new VueRouter({
@@ -64,6 +66,10 @@ let router = new VueRouter({
        {
            path:'/',
            component:IndexPage
+       },
+       {
+           path:'/orderList',
+           component:OrderList
        },
         {
            path:'/detail',

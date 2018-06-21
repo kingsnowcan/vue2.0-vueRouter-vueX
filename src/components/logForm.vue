@@ -76,8 +76,7 @@ export default {
     }
   },
   methods:{
-    onLogin(){
-     
+    onLogin(){    
       if(this.passwordErrors.status&&this.userErrors.status){
         this.errorText = ''
          console.log(this.usernameModel,this.passwordModel) 

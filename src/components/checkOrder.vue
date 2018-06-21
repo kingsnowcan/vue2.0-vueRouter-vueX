@@ -41,7 +41,7 @@ export default {
  
   methods:{
    checkStatus(){
-     this.$http.get('/api/checkOrder')
+     this.$http.get('/api/checkOrder',{orderId:this.orderId})
       .then((res)=>{
         /*let data = JSON.parse(res.data)*/
        this.isShowSuccessDialog = true
@@ -53,10 +53,10 @@ export default {
 
       })
    },
-   toOrderList(){
+   /*toOrderList(){
     this.isShowSuccessDialog = false
      this.$router.push({path: '/orderList'})
-   }
+   }*/
   }
 }
 
