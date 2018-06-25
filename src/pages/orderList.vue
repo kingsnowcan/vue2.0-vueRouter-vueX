@@ -25,7 +25,7 @@
     <div class="order-list-table">
       <table>
         <tr>
-         <th v-for="head in tableHeads">{{head.label}}</th>
+         <th v-for="head in tableHeads" @click="changeOrder(head)" :class="{active:head.active}">{{head.label}}</th>
         </tr>
         <tr v-for="item in tableData" >
           <td v-for="head in tableHeads" >{{item[head.key]}}</td>
@@ -40,6 +40,7 @@
 <script>
   import VSelection from '../components/base/selection'
   import VDatePicker from '../components/base/datepicker'
+  import _ from 'lodash'
 export default { 
    components:{
     VSelection,
@@ -100,6 +101,7 @@ export default {
         }
       ],
       tableData:[],
+      currentOrder:'asc',
     }
   },
   watch:{
@@ -134,10 +136,24 @@ export default {
       },(err)=>{
 
       })
+    },
+    changeOrder(headItem){
+         this.tableHeads.map((item)=>{
+          item.active = false
+          return item
+         })
+         headItem.active = true
+         if(this.currentOrder === 'asc'){
+          this.currentOrder = 'desc'
+         }else if(this.currentOrder === 'desc'){
+          this.currentOrder = 'asc'
+         }
+         this.tableData = _.orderBy(this.tableData,headItem.key,this.currentOrder)
     }
   },
   mounted(){
       this.getTableData()
+      console.log('store',this.$store)
   }
 }
 

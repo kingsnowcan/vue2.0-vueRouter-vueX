@@ -58,6 +58,7 @@ import DetailAnaPage from './pages/detail/analysis'
 import DetailCouPage from './pages/detail/count'
 import DetailPubPage from './pages/detail/publish'
 
+/*import store from './store'*/
 Vue.use(VueRouter)//使用路由
 Vue.use(VueResource)//使用ajax调用后台数据
 let router = new VueRouter({
@@ -98,6 +99,7 @@ let router = new VueRouter({
 new Vue({
   el:'#app',
   router,
+  //store,
   template:'<Layout/>',
   components:{Layout}
   /*render:h => h(App)*/

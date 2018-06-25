@@ -196,7 +196,7 @@ export default {
       this.$store.commit('decrement',this.price)
     },
     doSomeSlideChange(){
-      console.log('doSomeSlideChange run!')
+      //console.log('doSomeSlideChange run!')
     },
     /*getParam(){
       console.log(this.$route.params)
